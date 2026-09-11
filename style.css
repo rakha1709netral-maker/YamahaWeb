@@ -1,7 +1,7 @@
 :root {
-  --violet: #6d5dfc;
-  --violet-dark: #4f46e5;
-  --pink: #ec4899;
+  --violet: #ef3d23;
+  --violet-dark: #ca2c16;
+  --pink: #ef3d23;
   --amber: #f59e0b;
   --green: #10b981;
   --blue: #0ea5e9;
@@ -11,7 +11,7 @@
   --line: #e8ebf2;
   --bg: #f4f6fb;
   --card: #ffffff;
-  --sidebar: #17172b;
+  --sidebar: #111318;
   --radius: 18px;
   --shadow: 0 10px 35px rgba(29, 31, 54, 0.075);
   --soft-shadow: 0 4px 18px rgba(29, 31, 54, 0.06);
@@ -70,14 +70,14 @@ img, svg { display: block; max-width: 100%; }
 .login-brand { font-size: 1.35rem; }
 .brand { font-size: 1.25rem; color: white; }
 .brand-mark {
-  width: 38px;
+  width: 42px;
   height: 38px;
   display: inline-grid;
   place-items: center;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--violet), var(--pink));
+  background: var(--violet);
   color: white;
-  font-size: 1rem;
+  font-size: .64rem;
   box-shadow: 0 8px 24px rgba(109, 93, 252, .35);
 }
 .login-message { max-width: 620px; }
@@ -232,7 +232,7 @@ td strong { color: var(--ink); }
 .empty-state p { max-width: 340px; font-size: .79rem; }
 
 /* Dashboard */
-.welcome-card { position: relative; overflow: hidden; min-height: 176px; margin-bottom: 20px; padding: 30px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 22px; background: linear-gradient(118deg, #5145db, #735df5 47%, #b94bd6); color: white; box-shadow: 0 16px 38px rgba(78,65,210,.2); }
+.welcome-card { position: relative; overflow: hidden; min-height: 176px; margin-bottom: 20px; padding: 30px 32px; display: flex; align-items: center; justify-content: space-between; gap: 20px; border-radius: 22px; background: linear-gradient(118deg, #17191e, #2b3038 60%, #492218); color: white; box-shadow: 0 16px 38px rgba(20,22,28,.2); }
 .welcome-card::after { content: ""; position: absolute; right: -55px; top: -92px; width: 270px; height: 270px; border: 44px solid rgba(255,255,255,.075); border-radius: 50%; }
 .welcome-card > * { position: relative; z-index: 1; }
 .welcome-card h2 { font-size: clamp(1.55rem, 3vw, 2.15rem); letter-spacing: -.045em; }
@@ -535,4 +535,139 @@ td strong { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) {
   *, *::before, *::after { scroll-behavior: auto !important; animation-duration: .01ms !important; transition-duration: .01ms !important; }
+}
+
+/* ============================================================
+   NUSA MOTORS — vehicle dealer additions
+   ============================================================ */
+.badge.orange { background: #ffeadf; color: #c43b16; }
+.badge.gray { background: #e9ebee; color: #5d6570; }
+.stat-card.red .stat-icon { background: #ffe7e1; color: #c6311b; }
+.stat-card.gray .stat-icon { background: #e9ebee; color: #4f5864; }
+.public-site-link { min-height: 38px; padding: 8px 12px; display: inline-flex; align-items: center; border: 1px solid var(--line); border-radius: 10px; background: white; color: #525a66; box-shadow: var(--soft-shadow); font-size: .68rem; font-weight: 800; }
+
+.dealer-welcome { position: relative; min-height: 185px; margin-bottom: 20px; padding: 31px 34px; display: flex; align-items: center; justify-content: space-between; gap: 25px; overflow: hidden; border-radius: 20px; background: linear-gradient(118deg,#111318,#252a31 66%,#4a2118); color: white; box-shadow: 0 18px 42px rgba(17,19,24,.16); }
+.dealer-welcome::after { content:"NM"; position:absolute; right:145px; color:transparent; -webkit-text-stroke:1px rgba(255,255,255,.08); font-size:7.5rem; font-weight:900; font-style:italic; letter-spacing:-.12em; transform:skewX(-8deg); }
+.dealer-welcome > * { position:relative; z-index:1; }
+.dealer-welcome h2 { font-size:clamp(1.7rem,3vw,2.4rem); letter-spacing:-.05em; }
+.dealer-welcome p { margin-top:6px; color:#a5abb3; font-size:.77rem; }
+.inventory-strip { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.inventory-unit { min-height:76px; padding:9px; display:grid; grid-template-columns:72px minmax(0,1fr) auto; align-items:center; gap:11px; border:1px solid #e6e8ec; border-radius:12px; }
+.inventory-unit .vehicle-image.compact,.inventory-unit .vehicle-placeholder.compact { width:72px; height:54px; border-radius:8px; }
+.inventory-unit strong,.inventory-unit span { display:block; }
+.inventory-unit strong { font-size:.7rem; }
+.inventory-unit span { color:var(--muted); font-size:.61rem; }
+.inventory-unit > b { color:var(--violet); font-size:.65rem; white-space:nowrap; }
+.lead-stack { display:grid; }
+.lead-row { padding:11px 0; display:grid; grid-template-columns:36px minmax(0,1fr) auto; align-items:center; gap:10px; border-bottom:1px solid #edf0f3; }
+.lead-row:last-child { border-bottom:0; }
+.lead-row > span { width:36px; height:36px; display:grid; place-items:center; border-radius:10px; background:#f0f1f3; color:#555d68; font-size:.72rem; font-weight:900; }
+.lead-row strong,.lead-row small { display:block; }
+.lead-row strong { font-size:.7rem; }
+.lead-row small { color:var(--muted); font-size:.59rem; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+
+.vehicle-image { width:100%; height:100%; object-fit:cover; }
+.vehicle-placeholder { position:relative; width:100%; height:100%; min-height:150px; display:flex; flex-direction:column; align-items:center; justify-content:center; gap:2px; overflow:hidden; background:linear-gradient(145deg,#252a31,#12151a); color:white; }
+.vehicle-placeholder::after { content:""; position:absolute; width:70%; height:1px; background:linear-gradient(90deg,transparent,#ef3d23,transparent); transform:rotate(-11deg); opacity:.45; }
+.vehicle-placeholder span { color:#737b86; font-size:.56rem; font-weight:900; letter-spacing:.12em; text-transform:uppercase; }
+.vehicle-placeholder strong { font-size:2rem; font-style:italic; letter-spacing:-.1em; }
+.vehicle-placeholder small { color:#69717b; font-size:.56rem; }
+.vehicle-admin-head,.showroom-preview-head { min-height:130px; margin-bottom:20px; padding:24px 27px; display:flex; align-items:center; justify-content:space-between; gap:24px; border:1px solid #e2e4e8; border-radius:18px; background:linear-gradient(110deg,#f4f5f6,#fff); }
+.vehicle-admin-head h2,.showroom-preview-head h2 { margin-top:5px; font-size:1.4rem; letter-spacing:-.045em; }
+.vehicle-admin-head p,.showroom-preview-head p { margin-top:4px; color:var(--muted); font-size:.72rem; }
+.vehicle-admin-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:15px; }
+.admin-vehicle-card { overflow:hidden; border:1px solid #e2e5e9; border-radius:14px; background:white; }
+.admin-vehicle-card > .vehicle-image,.admin-vehicle-card > .vehicle-placeholder { height:170px; min-height:170px; }
+.admin-vehicle-copy { padding:15px; }
+.admin-vehicle-copy > div { display:flex; gap:5px; }
+.admin-vehicle-copy h3 { min-height:39px; margin-top:9px; font-size:.78rem; line-height:1.35; }
+.admin-vehicle-copy p { margin-top:4px; color:var(--muted); font-size:.6rem; }
+.admin-vehicle-copy > strong,.admin-vehicle-copy > small { display:block; }
+.admin-vehicle-copy > strong { margin-top:10px; font-size:.85rem; }
+.admin-vehicle-copy > small { color:#16966c; font-size:.59rem; }
+.admin-card-actions,.promo-actions { display:grid; grid-template-columns:1fr 1fr; border-top:1px solid #eceef1; }
+.admin-card-actions button,.promo-actions button { min-height:37px; border:0; background:#fafbfc; color:#38404a; cursor:pointer; font-size:.64rem; font-weight:800; }
+.admin-card-actions button+button,.promo-actions button+button { border-left:1px solid #eceef1; }
+.admin-card-actions button:hover,.promo-actions button:hover { background:#f1f2f4; }
+.admin-card-actions .danger,.promo-actions .danger,.text-button.danger { color:#c83721; }
+.modal.modal-wide { width:min(920px,100%); }
+.vehicle-form { display:grid; grid-template-columns:270px 1fr; gap:23px; }
+.upload-panel { display:flex; flex-direction:column; align-items:stretch; gap:9px; }
+.upload-panel #vehicle-preview { height:210px; overflow:hidden; border-radius:13px; background:#eceef0; }
+.upload-panel .preview { min-height:210px; height:210px; border-radius:13px; }
+.upload-button { position:relative; overflow:hidden; }
+.upload-button input { position:absolute; width:1px; height:1px; opacity:0; }
+.text-button { border:0; background:transparent; cursor:pointer; font-size:.65rem; font-weight:800; }
+.upload-panel > small { color:var(--muted); font-size:.58rem; text-align:center; }
+.vehicle-fields { align-content:start; }
+
+.promo-admin-hero { min-height:180px; margin-bottom:20px; padding:30px 32px; display:flex; align-items:center; justify-content:space-between; gap:25px; overflow:hidden; border-radius:20px; background:linear-gradient(120deg,#c8301a,#ef3d23 60%,#ff654a); color:white; }
+.promo-admin-hero h2 { max-width:700px; font-size:1.7rem; letter-spacing:-.045em; }
+.promo-admin-hero p { margin-top:5px; color:#ffd4cd; font-size:.74rem; }
+.promo-admin-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:13px; }
+.promo-admin-card { display:grid; grid-template-columns:120px minmax(0,1fr); overflow:hidden; border:1px solid #e4e6ea; border-radius:14px; }
+.promo-percent { padding:17px; display:flex; flex-direction:column; justify-content:center; background:#16191e; color:white; }
+.promo-percent strong { font-size:1.8rem; letter-spacing:-.06em; }
+.promo-percent span { color:#888f99; font-size:.55rem; }
+.promo-admin-copy { padding:16px; }
+.promo-admin-copy > div { display:flex; align-items:center; gap:7px; }
+.promo-admin-copy code,.auto-label { padding:3px 6px; background:#f1f2f4; color:#c8301a; font-family:inherit; font-size:.56rem; font-weight:900; }
+.promo-admin-copy h3 { margin-top:9px; font-size:.78rem; }
+.promo-admin-copy p { margin-top:4px; color:#656d78; font-size:.62rem; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; }
+.promo-admin-copy > small { display:block; margin-top:7px; color:#9096a0; font-size:.57rem; }
+.promo-actions { grid-column:1/-1; }
+.target-checkboxes { max-height:200px; overflow-y:auto; display:grid; grid-template-columns:1fr 1fr; gap:7px; }
+.target-checkboxes label { padding:9px; display:flex; align-items:center; gap:8px; border:1px solid #e1e4e8; border-radius:9px; cursor:pointer; color:#4e5661; font-size:.66rem; }
+.target-checkboxes input { accent-color:var(--violet); }
+.all-target,.discount-hint { padding:12px; border:1px solid #e2e5e9; border-radius:10px; background:#f6f7f8; color:#626a75; font-size:.67rem; }
+.discount-hint b { color:var(--ink); }
+.discount-hint p { margin-top:3px; }
+
+.admin-showroom-grid { display:grid; grid-template-columns:repeat(3,minmax(0,1fr)); gap:16px; }
+.showroom-card { overflow:hidden; border:1px solid #e2e5e9; border-radius:15px; background:white; box-shadow:var(--soft-shadow); }
+.showroom-card > .vehicle-image,.showroom-card > .vehicle-placeholder { height:210px; min-height:210px; }
+.showroom-card-body { padding:16px; }
+.showroom-card-body > div { display:flex; gap:6px; }
+.deal-badge { padding:4px 8px; border-radius:99px; background:#ffe6df; color:#c9301a; font-size:.62rem; font-weight:900; }
+.showroom-card-body h3 { min-height:42px; margin-top:10px; font-size:.82rem; }
+.showroom-card-body p { color:var(--muted); font-size:.62rem; }
+.showroom-card-body .old-price { display:block; margin-top:10px; color:#999fa8; font-size:.61rem; text-decoration:line-through; }
+.showroom-card-body > strong { display:block; font-size:1rem; }
+.stock-label { display:block; margin-top:3px; color:#14835f; font-size:.61rem; font-weight:700; }
+
+.pos-vehicle-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:10px; }
+.pos-vehicle { min-height:92px; padding:9px; display:grid; grid-template-columns:92px minmax(0,1fr) 24px; align-items:center; gap:10px; border:1px solid #e2e5e9; border-radius:12px; background:white; cursor:pointer; text-align:left; }
+.pos-vehicle:hover { border-color:#f09b8c; background:#fff9f7; }
+.pos-vehicle .pos-thumb { width:92px; height:68px; min-height:68px; border-radius:9px; }
+.pos-vehicle .pos-thumb strong { font-size:1.1rem; }
+.pos-vehicle span > strong,.pos-vehicle span > small { display:block; }
+.pos-vehicle span > strong { margin-top:5px; font-size:.67rem; line-height:1.35; }
+.pos-vehicle span > small { margin-top:3px; color:var(--muted); font-size:.57rem; }
+.pos-vehicle > i { color:var(--violet); font-size:1rem; font-style:normal; }
+.vehicle-cart-item { grid-template-columns:62px minmax(0,1fr) auto; }
+.vehicle-cart-item .cart-thumb { width:62px; height:48px; min-height:48px; border-radius:7px; }
+.vehicle-cart-item .cart-thumb strong { font-size:.9rem; }
+.vehicle-cart-item em { display:block; margin-top:3px; color:#c9341e; font-size:.54rem; font-style:normal; font-weight:800; }
+.promo-code-field { grid-column:1/-1; display:grid; grid-template-columns:1fr auto; align-items:end; gap:8px; }
+.summary-row.discount b { color:#c8311b; }
+.point-preview { margin-top:11px; padding:9px 10px; border:1px solid #d7efe5; border-radius:9px; background:#eefaf5; color:#39705e; font-size:.62rem; }
+.receipt-summary { padding:10px 0; border-top:1px dashed #dfe2ea; }
+.receipt-summary > div { padding:4px 0; display:flex; justify-content:space-between; color:var(--muted); font-size:.68rem; }
+
+@media(max-width:1200px) {
+  .vehicle-admin-grid,.admin-showroom-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
+  .pos-vehicle-grid { grid-template-columns:1fr; }
+}
+@media(max-width:960px) {
+  .inventory-strip { grid-template-columns:1fr; }
+  .vehicle-form { grid-template-columns:1fr; }
+  .upload-panel { max-width:360px; }
+  .promo-admin-grid { grid-template-columns:1fr; }
+}
+@media(max-width:720px) {
+  .public-site-link { display:none; }
+  .dealer-welcome,.vehicle-admin-head,.showroom-preview-head,.promo-admin-hero { align-items:flex-start; flex-direction:column; }
+  .dealer-welcome .btn,.vehicle-admin-head .btn,.promo-admin-hero .btn { width:100%; }
+  .vehicle-admin-grid,.admin-showroom-grid { grid-template-columns:1fr; }
+  .target-checkboxes { grid-template-columns:1fr; }
 }
