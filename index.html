@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="TokoKu — sistem penjualan terpadu untuk kasir, stok, pelanggan, dan laporan.">
+  <title>Masuk · TokoKu</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main class="login-page">
+    <section class="login-visual" aria-label="Tentang TokoKu">
+      <a class="login-brand" href="index.html"><span class="brand-mark">T</span><span>TokoKu</span></a>
+      <div class="login-message">
+        <span class="login-kicker">SISTEM PENJUALAN TERPADU</span>
+        <h1>Satu ruang kerja untuk seluruh toko.</h1>
+        <p>Kelola transaksi, stok, pelanggan, hingga laporan bisnis dengan alur kerja yang ringkas dan mudah dipahami.</p>
+      </div>
+      <div class="login-proof"><span>20 halaman terintegrasi</span><span>3 tingkat akses</span><span>Data tersimpan lokal</span></div>
+    </section>
+
+    <section class="login-panel">
+      <div class="login-card">
+        <a class="login-brand mobile-brand" href="index.html"><span class="brand-mark">T</span><span>TokoKu</span></a>
+        <span class="card-kicker">SELAMAT DATANG</span>
+        <h2>Masuk ke akun Anda</h2>
+        <p>Gunakan akun sesuai peran untuk membuka ruang kerja.</p>
+        <div id="login-error" class="login-error" role="alert">Username atau password tidak sesuai.</div>
+        <form id="login-form">
+          <label class="field"><span>Username</span><input id="username" name="username" autocomplete="username" placeholder="Masukkan username" required></label>
+          <label class="field"><span>Password</span><input id="password" name="password" type="password" autocomplete="current-password" placeholder="Masukkan password" required></label>
+          <button class="btn btn-primary login-submit" type="submit">Masuk ke TokoKu <span>→</span></button>
+        </form>
+        <div class="demo-accounts">
+          <span>Akun demo</span>
+          <div class="demo-row"><b>Owner</b><span>owner / owner123</span></div>
+          <div class="demo-row"><b>Manajer</b><span>manajer / manajer123</span></div>
+          <div class="demo-row"><b>Karyawan</b><span>karyawan / karyawan123</span></div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+  <script>
+    const currentSession = getSession();
+    if (currentSession) location.href = "pages/dashboard.html";
+    document.getElementById("login-form").addEventListener("submit", (event) => {
+      event.preventDefault();
+      const user = login(document.getElementById("username").value.trim(), document.getElementById("password").value);
+      if (user) location.href = "pages/dashboard.html";
+      else document.getElementById("login-error").classList.add("show");
+    });
+  </script>
+</body>
+</html>
