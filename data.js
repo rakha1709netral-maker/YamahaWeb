@@ -11,11 +11,7 @@ const APP = {
   whatsapp: "628125550199"
 };
 
-const SEED_USERS = [
-  { id: 1, nama: "Budi Santoso", username: "owner", password: "owner123", role: "owner", email: "owner@nusamotors.id" },
-  { id: 2, nama: "Sari Wijaya", username: "manajer", password: "manajer123", role: "manajer", email: "manajer@nusamotors.id" },
-  { id: 3, nama: "Andi Pratama", username: "sales", password: "sales123", role: "karyawan", email: "sales@nusamotors.id" }
-];
+const SEED_USERS = [];
 
 const ROLE_COLORS = { owner: "#ef3d23", manajer: "#2563eb", karyawan: "#0f9f72" };
 const ROLE_LABEL = { owner: "Owner", manajer: "Manajer", karyawan: "Sales" };
@@ -59,11 +55,7 @@ const VEHICLE_SEEDS = [
   }
 ];
 
-const CUSTOMER_SEEDS = [
-  { id: 1, nama: "Dewi Anggraini", telepon: "0812-3456-7890", email: "dewi@mail.com", password: "member123", alamat: "Bandung", tier: "Gold", poin: 4280, status: "Aktif", bergabung: "2025-02-18" },
-  { id: 2, nama: "Rizky Pratama", telepon: "0813-9876-5432", email: "rizky@mail.com", password: "member123", alamat: "Jakarta", tier: "Silver", poin: 1850, status: "Aktif", bergabung: "2025-08-09" },
-  { id: 3, nama: "Maya Putri", telepon: "0821-1122-3344", email: "maya@mail.com", password: "member123", alamat: "Surabaya", tier: "Platinum", poin: 8750, status: "Aktif", bergabung: "2024-11-27" }
-];
+const CUSTOMER_SEEDS = [];
 
 const DISCOUNT_SEEDS = [
   { id: 1, nama: "Drive Home September", kode: "", persen: 5, cakupan: "Produk", target_ids: [1, 3], target_nilai: "", minimal_transaksi: 0, maksimal_diskon: 8000000, mulai: "2026-09-01", selesai: "2026-09-30", status: "Aktif" },
@@ -261,23 +253,9 @@ const NOTIFICATION_SEEDS = [
   { id: 3, icon: "%", title: "Promo Drive Home September aktif", body: "Potongan otomatis berlaku untuk dua kendaraan pilihan.", time: "Hari ini", read: true, tone: "red" }
 ];
 
-function readStore(key, fallback = []) {
-  try { return JSON.parse(localStorage.getItem(key) || JSON.stringify(fallback)); }
-  catch { return fallback; }
-}
-
-function writeStore(key, value) { localStorage.setItem(key, JSON.stringify(value)); }
-
-function seedAll() {
-  Object.values(ENTITIES).forEach((entity) => {
-    if (!localStorage.getItem(entity.storage)) writeStore(entity.storage, entity.seeds);
-  });
-  if (!localStorage.getItem("nusa_detail_transaksi")) writeStore("nusa_detail_transaksi", DETAIL_TRANSAKSI_SEED);
-  if (!localStorage.getItem("nusa_pengaturan")) writeStore("nusa_pengaturan", SETTINGS_SEED);
-  if (!localStorage.getItem("nusa_notifikasi")) writeStore("nusa_notifikasi", NOTIFICATION_SEEDS);
-  if (!localStorage.getItem("nusa_login_logs")) writeStore("nusa_login_logs", []);
-  if (!localStorage.getItem("nusa_favorit")) writeStore("nusa_favorit", []);
-}
+function readStore(key, fallback = []) { return javaRead(key, fallback); }
+function writeStore(key, value) { javaWrite(key, value); }
+function seedAll() {}
 
 function getActiveDiscounts() {
   const today = new Date().toISOString().slice(0, 10);

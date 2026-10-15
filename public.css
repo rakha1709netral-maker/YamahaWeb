@@ -9,8 +9,8 @@
   --auto-card: #ffffff;
   --auto-dark: #0e1116;
   --auto-radius: 18px;
-}
-* { box-sizing: border-box; margin: 0; padding: 0; }
+} 
+* { box-sizing: border-box; margin: 0; padding: 0; } 
 html { scroll-behavior: smooth; }
 body { min-height: 100vh; background: var(--auto-bg); color: var(--auto-ink); font-family: Inter, ui-sans-serif, system-ui, sans-serif; font-size: 16px; line-height: 1.55; -webkit-font-smoothing: antialiased; }
 button, input, select, textarea { font: inherit; }

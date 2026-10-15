@@ -233,7 +233,7 @@ function openForm(entity, id = null) {
   const row = id ? rowsOf(entity).find((item) => item.id === id) || {} : {};
   const fields = config.fields.map((field) => {
     const value = row[field.name] ?? "";
-    const attributes = `${field.required ? "required" : ""} ${field.min !== undefined ? `min="${field.min}"` : ""}`;
+    const attributes = `${field.required && !(field.type === "password" && editId) ? "required" : ""} ${field.min !== undefined ? `min="${field.min}"` : ""}`;
     let control = `<input id="f-${field.name}" type="${field.type}" value="${esc(value)}" ${attributes}>`;
     if (field.type === "select") control = `<select id="f-${field.name}" ${attributes}>${field.options.map((option) => `<option ${option === value ? "selected" : ""}>${esc(option)}</option>`).join("")}</select>`;
     if (field.type === "textarea") control = `<textarea id="f-${field.name}" rows="3" ${attributes}>${esc(value)}</textarea>`;
@@ -515,7 +515,7 @@ function renderLoginHistory() {
 function clearLoginHistory() { if (!confirm("Hapus seluruh riwayat login?")) return; writeStore("nusa_login_logs", []); renderLoginHistory(); toast("Riwayat login dibersihkan."); }
 
 function renderBackup() {
-  const keys = Object.keys(localStorage).filter((key) => key.startsWith("nusa_") && !key.includes("session")); const size = keys.reduce((sum, key) => sum + (localStorage.getItem(key)?.length || 0), 0);
+  const keys = Object.keys(javaData).filter((key) => key.startsWith("nusa_") && !key.includes("session")); const size = keys.reduce((sum, key) => sum + (JSON.stringify(javaData[key])?.length || 0), 0);
   $("#page-root").innerHTML = `<section class="backup-hero"><div class="backup-icon">⇩</div><div><span class="eyebrow">PUSAT DATA</span><h2>Backup data dealer dan foto kendaraan.</h2><p>Data thumbnail ikut masuk ke file backup JSON.</p></div><span class="backup-size">${(size / 1024).toFixed(1)} KB</span></section><section class="backup-grid"><article class="card backup-card"><span class="backup-step">01</span><h2>Ekspor backup</h2><p>Unduh inventori, foto, promo, member, transaksi, dan pengaturan.</p><button class="btn btn-primary" onclick="exportBackup()">↓ Unduh backup</button></article><article class="card backup-card"><span class="backup-step">02</span><h2>Impor backup</h2><p>Pulihkan data Nusa Motors dari file JSON yang valid.</p><label class="btn btn-secondary file-button">↑ Pilih file<input type="file" accept="application/json,.json" onchange="importBackup(event)"></label></article><article class="card backup-card danger-zone"><span class="backup-step">03</span><h2>Reset data demo</h2><p>Kembalikan semua data ke kondisi awal kendaraan.</p><button class="btn btn-danger" onclick="resetDemoData()">Reset data</button></article></section>`;
 }
 
